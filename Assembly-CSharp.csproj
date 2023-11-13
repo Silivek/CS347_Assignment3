@@ -656,6 +656,7 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/wkilp/Desktop/Unity/ApplePicker2023/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
+        <HintPath>/Applications/Unity/2020.3.40f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
