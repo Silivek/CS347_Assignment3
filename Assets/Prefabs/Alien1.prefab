@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  bombFrequency: 3
+  bombPrefab: {fileID: 1906374043378120, guid: 79eac1308df01c1459d5833c9cb6055c, type: 3}
   rb: {fileID: 0}
 --- !u!54 &1825087029353890505
 Rigidbody:
