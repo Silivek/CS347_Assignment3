@@ -75,7 +75,7 @@ public class ApplePicker : MonoBehaviour
         if (!isGameover){
             surviveTime += Time.deltaTime;
            //timeText.text = "Time: "+(int)surviveTime;
-            print(surviveTime);
+            //print(surviveTime);
 
             if (surviveTime > 30){
                 NextLevel();
