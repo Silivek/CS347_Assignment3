@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 226544550}
   - component: {fileID: 226544554}
   - component: {fileID: 226544553}
-  - component: {fileID: 226544552}
   - component: {fileID: 226544551}
   m_Layer: 5
   m_Name: AlienCount
@@ -177,18 +176,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &226544552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 226544549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84e43e721a4c24e908c8ee7756f52196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &226544553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 317726964}
   - component: {fileID: 317726965}
-  - component: {fileID: 317726967}
-  - component: {fileID: 317726966}
   m_Layer: 0
   m_Name: ExplosionSound
   m_TagString: Untagged
@@ -360,34 +345,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &317726966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317726963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f87284db9f741c88b794aee2c922fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreGT: {fileID: 0}
-  death: {fileID: 0}
---- !u!114 &317726967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317726963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f87284db9f741c88b794aee2c922fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreGT: {fileID: 0}
-  death: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +659,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 16
   m_Depth: -1
   m_CullingMask:
@@ -1205,8 +1162,14 @@ MonoBehaviour:
     type: 3}
   barrierPrefab: {fileID: 1055176139195450, guid: 8df5c852523587841a7b1d38ef976abe,
     type: 3}
+  barrierCount: 0
+  barrierMax: 27
+  aliensKilled: 0
+  killGoal: 30
+  alienCountText: {fileID: 226544553}
+  barrierCountText: {fileID: 1580455738}
   barrierList: []
-  spawnInterval: 0
+  spawnInterval: 2
 --- !u!1 &1929641528
 GameObject:
   m_ObjectHideFlags: 0

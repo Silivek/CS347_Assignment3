@@ -38,6 +38,8 @@ public class AlienBehavior : MonoBehaviour
     void OnTriggerEnter(Collider col) {
         if (col.tag == "Bullet") {
             Destroy(col.gameObject);
+
+            GameObject.Find("GameManager").GetComponent<GameManagerBehavior>().aliensKilled++;
             Destroy(gameObject);
         }
     }

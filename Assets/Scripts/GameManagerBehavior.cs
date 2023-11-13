@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerBehavior : MonoBehaviour
 {
@@ -8,6 +9,19 @@ public class GameManagerBehavior : MonoBehaviour
     public GameObject alien1Prefab;
     public GameObject alien2Prefab;
     public GameObject barrierPrefab;
+
+    public int barrierCount = 0;
+
+    public int barrierMax = 27;
+
+    public int aliensKilled = 0;
+
+    public int killGoal;
+
+    int alienLimit;
+
+    public Text alienCountText;
+    public Text barrierCountText;
 
     public List<GameObject> barrierList;
     public float spawnInterval;
@@ -19,13 +33,18 @@ public class GameManagerBehavior : MonoBehaviour
     void Start()
     {
         barrierList = new List<GameObject>();
-        for (int i = 0; i < 27; i++)
+        for (int i = 0; i < barrierMax; i++)
         {
             GameObject tempBarrier = Instantiate<GameObject>(barrierPrefab);
             tempBarrier.transform.position = new Vector3(-27 + (i * 2), -14, 0);
             tempBarrier.transform.rotation = Quaternion.Euler(90, 90, 0);
             barrierList.Add(tempBarrier);
+
+            barrierCount++;
         }
+
+        alienCountText.text = "?/30";
+        barrierCountText.text = "?/?";
     }
 
     // Update is called once per frame
@@ -52,8 +71,14 @@ public class GameManagerBehavior : MonoBehaviour
                     break;
             }
 
-            spawnTimer = 2;
+            spawnTimer = spawnInterval;
 
         } else spawnTimer -= Time.deltaTime;
+
+        alienCountText.text = "Aliens:  " + aliensKilled + " / " + killGoal;
+        barrierCountText.text = "Base Barrier:  " + barrierCount + " / " + barrierMax;
+
+
+
     }
 }
