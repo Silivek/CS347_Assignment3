@@ -102,7 +102,7 @@ public class ApplePicker : MonoBehaviour
 
     public void NextLevel() {
 
-        SceneManager.LoadScene("_Scene_1");            
+        //SceneManager.LoadScene("_Scene_1");            
 
 
     }

@@ -6,8 +6,10 @@ public class GameManagerBehavior : MonoBehaviour
 {
 
     public GameObject alien1Prefab;
-    public GameObject alien2Prefab; 
+    public GameObject alien2Prefab;
+    public GameObject barrierPrefab;
 
+    public List<GameObject> barrierList;
     public float spawnInterval;
 
     float spawnTimer = 1;
@@ -16,7 +18,14 @@ public class GameManagerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        barrierList = new List<GameObject>();
+        for (int i = 0; i < 27; i++)
+        {
+            GameObject tempBarrier = Instantiate<GameObject>(barrierPrefab);
+            tempBarrier.transform.position = new Vector3(-27 + (i * 2), -14, 0);
+            tempBarrier.transform.rotation = Quaternion.Euler(90, 90, 0);
+            barrierList.Add(tempBarrier);
+        }
     }
 
     // Update is called once per frame
