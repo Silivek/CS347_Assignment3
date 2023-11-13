@@ -32,14 +32,14 @@ public class GameManagerBehavior : MonoBehaviour
             switch (enemyType) {
                 case 0: 
 
-                    Instantiate(alien1Prefab, new Vector3(-30+(spawnSide*60), 10+(10*spawnLane), 0), Quaternion.identity);
+                    Instantiate(alien1Prefab, new Vector3(-30+(spawnSide*60), 6+(3*spawnLane), 0), Quaternion.identity);
 
                     break;
                 case 1:
 
-                    Instantiate(alien2Prefab, new Vector3(-30+(spawnSide*60), 10+(10*spawnLane), 0), Quaternion.identity);
+                    Instantiate(alien2Prefab, new Vector3(-30+(spawnSide*60), 6+(3*spawnLane), 0), Quaternion.identity);
 
-
+                
                     break;
             }
 
