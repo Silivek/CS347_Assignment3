@@ -26,16 +26,18 @@ public class GameManagerBehavior : MonoBehaviour
             //Spawn enemy here
             int enemyType = Random.Range(0,2);
             int spawnSide = Random.Range(0,2);
+            int spawnLane = Random.Range(0,3);
+
 
             switch (enemyType) {
                 case 0: 
 
-                    Instantiate(alien1Prefab, new Vector3(-30+(spawnSide*60), 0, 0), Quaternion.identity);
+                    Instantiate(alien1Prefab, new Vector3(-30+(spawnSide*60), 10+(10*spawnLane), 0), Quaternion.identity);
 
                     break;
                 case 1:
 
-                    Instantiate(alien2Prefab, new Vector3(-30+(spawnSide*60), 0, 0), Quaternion.identity);
+                    Instantiate(alien2Prefab, new Vector3(-30+(spawnSide*60), 10+(10*spawnLane), 0), Quaternion.identity);
 
 
                     break;
