@@ -12,7 +12,7 @@ public class GameManagerBehavior : MonoBehaviour
     public List<GameObject> barrierList;
     public float spawnInterval;
 
-    float spawnTimer = 1;
+    float spawnTimer = 2;
 
 
     // Start is called before the first frame update
@@ -41,18 +41,18 @@ public class GameManagerBehavior : MonoBehaviour
             switch (enemyType) {
                 case 0: 
 
-                    Instantiate(alien1Prefab, new Vector3(-30+(spawnSide*60), 6+(3*spawnLane), 0), Quaternion.identity);
+                    Instantiate(alien1Prefab, new Vector3(-30+(spawnSide*60), 6+(3*spawnLane), 0), Quaternion.Euler(30, 180, 0));
 
                     break;
                 case 1:
 
-                    Instantiate(alien2Prefab, new Vector3(-30+(spawnSide*60), 6+(3*spawnLane), 0), Quaternion.identity);
+                    Instantiate(alien2Prefab, new Vector3(-30+(spawnSide*60), 6+(3*spawnLane), 0), Quaternion.Euler(15, 180, 0));
 
                 
                     break;
             }
 
-            spawnTimer = 1;
+            spawnTimer = 2;
 
         } else spawnTimer -= Time.deltaTime;
     }
