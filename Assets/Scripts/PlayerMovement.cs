@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector3(hsp*moveSpeed, 0, 0);
 
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -25, 25), -10, 0);
+
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             Instantiate(bulletPrefab, transform.position + new Vector3(0,5,0), Quaternion.identity);
