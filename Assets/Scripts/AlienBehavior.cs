@@ -34,4 +34,11 @@ public class AlienBehavior : MonoBehaviour
         }
         else bombTimer -= Time.deltaTime;
     }
+
+    void OnTriggerEnter(Collider col) {
+        if (col.tag == "Bullet") {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
