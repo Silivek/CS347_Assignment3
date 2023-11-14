@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -25, 25), -10, 0);
 
 
-            if (Input.GetKeyDown(KeyCode.Space) && bulletCount < shotLimit) {
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && bulletCount < shotLimit) {
                 Instantiate(bulletPrefab, transform.position + new Vector3(0,5,0), Quaternion.identity);
                 bulletCount++;
             }
