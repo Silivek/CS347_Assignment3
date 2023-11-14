@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagerBehavior : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class GameManagerBehavior : MonoBehaviour
 
     public Text alienCountText; //Kill count
     public Text barrierCountText;
+
+    public Text congratsText;
+    public Text gameOverText;
+
+    bool gameOverFlag = false;
+
 
     public List<GameObject> barrierList;
     public float spawnInterval;
@@ -46,12 +53,34 @@ public class GameManagerBehavior : MonoBehaviour
 
         alienCountText.text = "?/30";
         barrierCountText.text = "?/?";
+
+        congratsText.enabled = false;
+        gameOverText.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0 && alienCount < alienLimit) {
+        if (aliensKilled >= killGoal && gameOverFlag == false) {
+            
+            congratsText.enabled = true;
+
+            gameOverFlag = true;
+        } 
+
+        if (barrierCount <= 0 && gameOverFlag == false) {
+
+            gameOverText.enabled = true;
+
+            gameOverFlag = true;
+        }
+
+        if (gameOverFlag) {
+            if (Input.GetMouseButtonDown(0))
+                SceneManager.LoadScene("TitleScene");
+        }
+
+        if (spawnTimer <= 0 && alienCount < alienLimit && gameOverFlag == false) {
             //Spawn enemy here
             int enemyType = Random.Range(0,2);
             int spawnSide = Random.Range(0,2);
