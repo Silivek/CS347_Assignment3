@@ -32,4 +32,9 @@ public class PlayerLaser : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnDestroy() {
+        GameObject go = GameObject.Find("PlayerShip");
+        go.GetComponent<PlayerMovement>().bulletCount--;
+    }
 }

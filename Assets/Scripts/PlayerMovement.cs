@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public GameObject bulletPrefab;
 
+    public int bulletCount = 0;
+
+    public int shotLimit;
+
 
 
 
@@ -36,8 +40,9 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -25, 25), -10, 0);
 
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && bulletCount < shotLimit) {
             Instantiate(bulletPrefab, transform.position + new Vector3(0,5,0), Quaternion.identity);
+            bulletCount++;
         }
 
     }

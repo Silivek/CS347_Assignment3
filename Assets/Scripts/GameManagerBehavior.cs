@@ -19,7 +19,7 @@ public class GameManagerBehavior : MonoBehaviour
     public int killGoal;
 
     public int alienLimit;
-    int alienCount;
+    int alienCount = 0;
 
     public Text alienCountText; //Kill count
     public Text barrierCountText;

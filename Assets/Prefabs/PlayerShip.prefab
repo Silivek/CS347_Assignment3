@@ -161,3 +161,5 @@ MonoBehaviour:
   rb: {fileID: 0}
   bulletPrefab: {fileID: 4132044275857786310, guid: 4744415dfbe4bb8469f0e5f557468bfa,
     type: 3}
+  bulletCount: 0
+  shotLimit: 3
