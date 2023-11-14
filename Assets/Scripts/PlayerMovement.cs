@@ -59,9 +59,11 @@ public class PlayerMovement : MonoBehaviour
         if (collidedWith.tag == "Bomb")
         {
             Destroy(collidedWith);
-            stunTimer = stunDuration;
-            rb.velocity = new Vector3(0, 0, 0);
-            
+            if(stunTimer <= 0)
+            {
+                stunTimer = stunDuration;
+                rb.velocity = new Vector3(0, 0, 0);
+            }
         }
     }
 }
