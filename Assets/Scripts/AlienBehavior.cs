@@ -21,13 +21,13 @@ public class AlienBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x >= 30)
+        if (transform.position.x >= 35)
         {
             rb.velocity = new Vector3(-moveSpeed, 0, 0);
             gameObject.transform.rotation = Quaternion.Euler(15, 270, 0);
         }
 
-        if (transform.position.x <= -30)
+        if (transform.position.x <= -35)
         {
             rb.velocity = new Vector3(moveSpeed, 0, 0);
             gameObject.transform.rotation = Quaternion.Euler(15, 90, 0);

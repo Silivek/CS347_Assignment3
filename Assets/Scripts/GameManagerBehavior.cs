@@ -61,12 +61,12 @@ public class GameManagerBehavior : MonoBehaviour
             switch (enemyType) {
                 case 0:
 
-                    Instantiate(alien1Prefab, new Vector3(-30 + (spawnSide * 60), 6 + (3 * spawnLane), 0), Quaternion.Euler(15, 90 + (180 * spawnSide), 0));
+                    Instantiate(alien1Prefab, new Vector3(-40 + (spawnSide * 70), 6 + (3 * spawnLane), 0), Quaternion.Euler(15, 90 + (180 * spawnSide), 0));
 
                     break;
                 case 1:
 
-                    Instantiate(alien2Prefab, new Vector3(-30 + (spawnSide * 60), 6 + (3 * spawnLane), 0), Quaternion.Euler(15, 90 + (180 * spawnSide), 0));
+                    Instantiate(alien2Prefab, new Vector3(-40 + (spawnSide * 70), 6 + (3 * spawnLane), 0), Quaternion.Euler(15, 90 + (180 * spawnSide), 0));
 
                 
                     break;
