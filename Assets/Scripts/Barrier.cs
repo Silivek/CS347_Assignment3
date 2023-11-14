@@ -19,7 +19,6 @@ public class Barrier : MonoBehaviour
     void OnTriggerEnter(Collider col) {
         if (col.tag == "Bomb") {
             Destroy(col.gameObject);
-
             GameObject.Find("GameManager").GetComponent<GameManagerBehavior>().barrierCount--;
             Destroy(gameObject);
         }

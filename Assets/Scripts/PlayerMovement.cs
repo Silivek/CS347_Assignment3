@@ -41,4 +41,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    void OnTriggerEnter(Collider coll)
+    {
+        GameObject collidedWith = coll.gameObject;
+        if (collidedWith.tag == "Alien")
+        {
+            Destroy(collidedWith);
+            //do magic player things here
+        }
+    }
 }
