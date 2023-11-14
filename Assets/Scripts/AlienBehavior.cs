@@ -16,6 +16,7 @@ public class AlienBehavior : MonoBehaviour
         bombTimer = bombFrequency;
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(-moveSpeed,0,0);
+        
     }
 
     // Update is called once per frame
@@ -45,7 +46,10 @@ public class AlienBehavior : MonoBehaviour
         if (col.tag == "Bullet") {
             Destroy(col.gameObject);
 
-            GameObject.Find("GameManager").GetComponent<GameManagerBehavior>().aliensKilled++;
+            GameObject go = GameObject.Find("GameManager");
+            go.GetComponent<GameManagerBehavior>().aliensKilled++;
+            go.GetComponent<AudioSource>().Play();
+
             Destroy(gameObject);
         }
     }
