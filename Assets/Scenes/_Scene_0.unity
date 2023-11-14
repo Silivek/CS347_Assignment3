@@ -1166,6 +1166,7 @@ MonoBehaviour:
   barrierMax: 27
   aliensKilled: 0
   killGoal: 30
+  alienLimit: 30
   alienCountText: {fileID: 226544553}
   barrierCountText: {fileID: 1580455738}
   barrierList: []

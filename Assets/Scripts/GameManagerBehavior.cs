@@ -18,9 +18,10 @@ public class GameManagerBehavior : MonoBehaviour
 
     public int killGoal;
 
-    int alienLimit;
+    public int alienLimit;
+    int alienCount;
 
-    public Text alienCountText;
+    public Text alienCountText; //Kill count
     public Text barrierCountText;
 
     public List<GameObject> barrierList;
@@ -50,7 +51,7 @@ public class GameManagerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0) {
+        if (spawnTimer <= 0 && alienCount < alienLimit) {
             //Spawn enemy here
             int enemyType = Random.Range(0,2);
             int spawnSide = Random.Range(0,2);
@@ -70,6 +71,8 @@ public class GameManagerBehavior : MonoBehaviour
                 
                     break;
             }
+
+            alienCount++;
 
             spawnTimer = spawnInterval;
 
