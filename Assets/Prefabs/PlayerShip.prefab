@@ -163,3 +163,4 @@ MonoBehaviour:
     type: 3}
   bulletCount: 0
   shotLimit: 3
+  stunDuration: 2

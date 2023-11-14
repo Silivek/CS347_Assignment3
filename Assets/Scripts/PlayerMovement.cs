@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
     public int shotLimit;
 
+    float stunTimer = 0;
+
+    public float stunDuration;
+
 
 
 
@@ -24,35 +28,40 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int hsp = 0;
+        if (stunTimer <= 0) {
+            int hsp = 0;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-            hsp = -1;
+            if (Input.GetKey(KeyCode.LeftArrow))
+                hsp = -1;
 
-        if (Input.GetKey(KeyCode.RightArrow))
-            hsp = 1;
+            if (Input.GetKey(KeyCode.RightArrow))
+                hsp = 1;
 
-        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
-            hsp = 0;
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+                hsp = 0;
 
-        rb.velocity = new Vector3(hsp*moveSpeed, 0, 0);
+            rb.velocity = new Vector3(hsp*moveSpeed, 0, 0);
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -25, 25), -10, 0);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -25, 25), -10, 0);
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && bulletCount < shotLimit) {
-            Instantiate(bulletPrefab, transform.position + new Vector3(0,5,0), Quaternion.identity);
-            bulletCount++;
-        }
+            if (Input.GetKeyDown(KeyCode.Space) && bulletCount < shotLimit) {
+                Instantiate(bulletPrefab, transform.position + new Vector3(0,5,0), Quaternion.identity);
+                bulletCount++;
+            }
+
+        } else stunTimer -= Time.deltaTime;
 
     }
     void OnTriggerEnter(Collider coll)
     {
         GameObject collidedWith = coll.gameObject;
-        if (collidedWith.tag == "Alien")
+        if (collidedWith.tag == "Bomb")
         {
             Destroy(collidedWith);
-            //do magic player things here
+            stunTimer = stunDuration;
+            rb.velocity = new Vector3(0, 0, 0);
+            
         }
     }
 }
