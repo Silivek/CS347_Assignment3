@@ -24,4 +24,12 @@ public class PlayerLaser : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    void OnTriggerEnter(Collider col) {
+        if (col.tag == "Bomb") {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
