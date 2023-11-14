@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Rigidbody rb;
     public GameObject bulletPrefab;
+    AudioSource audio;
 
     public int bulletCount = 0;
 
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         rb  = GetComponent<Rigidbody>();
     }
 
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Bomb")
         {
+            audio.Play();
             Destroy(collidedWith);
             if(stunTimer <= 0)
             {
